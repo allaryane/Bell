@@ -13,25 +13,23 @@ Run : mvn spring-boot:run
  <b>H2 database</b>.
  Pour se faire le fichier <b>application.properties</b> a été configuré comme suit : 
  
- <code>
+ ```properties
  spring.datasource.url=jdbc:h2:mem:bell;MVCC=true;DB_CLOSE_DELAY=-1;MODE=MySQL
- spring.datasource.username=sa
+ spring.datasource.username=sa 
  spring.datasource.password=
- spring.datasource.driver-class-name=org.h2.Driver
+ spring.datasource.driver-class-name=org.h2.Driver 
  spring.datasource.platform=h2
  spring.datasource.initialize=true
  spring.h2.console.enabled=true
  spring.jpa.hibernate.ddl-auto=none
  spring.session.store-type=none
  security.user.password=root
- </code>
+ ```
  
 Aussi H2 permet de créer la base de données SQL au démarrage de l'application en ajoutant les scripts SQL 
 pour la creation de la structure et des données (insertions), à la racine du repertoire <b>src/main/resources/</b> :
 
-<b>schema-h2.sql</b>
-
-<b>data-h2.sql</b>
+<b>schema-h2.sql</b>        <b>data-h2.sql</b>
 
 Ainsi une fois l'application démarrée, la base de données est accessible via la console H2 via l'url locale : 
 
@@ -41,7 +39,8 @@ Par la suite pour se connecter à la base de données <b>bell</b> créer en mém
 en s'assurant avant que les paramètres de connexion requis sont corrects (Voir capture d'écran ci-dessous).
 
 <img url="h2Console.png" />
-![H2 Console](h2Console.png?raw=true "H2 Console")
+
+![ScreenShot](https://github.com/allaryane/Bell/raw/master/h2Console.png)
 
 <h2>Rest API</h2>
 
