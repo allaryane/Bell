@@ -52,7 +52,9 @@ HSQL a été utilisé pour configurer automatiquement la base de donnees "In Mem
 
 
 <h3>Installation</h3>
+
 Build : mvn clean package
+
 Run : mvn spring-boot:run
 
 
