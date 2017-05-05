@@ -2,13 +2,16 @@
 
 <h2>Installation</h2>
 
-1. Creation d'un JAR exécutable : 
+Le processus d'installation est relativement simple vu l'utlisation de Spring Boot et d'une base de données "In Memory". Elle se limite donc aux deux étapes ci-dessous.
+Ainsi une fois le projet téléchargé (ou cloner) via GitHub, ouvrir un terminal, se déplacer à la racine du répertoire téléchargé (ex. : <i>"cd ~/Bell-master/"</i>) puis lancer les deux commandes :
+
+1. Génération d'un JAR exécutable 
 
 <b>mvn clean package</b>
 
-2. Démarrage de l'application : 
+2. Démarrage de l'application
 
-<b>java -jar target/bell.jar</b>
+<b>java -jar target/bell-0.0.1-SNAPSHOT.jar</b>
 
 
 <h2>Database (In Memory)</h2>
