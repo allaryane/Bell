@@ -27,18 +27,18 @@ Run : mvn spring-boot:run
  ```
  
 Aussi H2 permet de créer la base de données SQL au démarrage de l'application en ajoutant les scripts SQL 
-pour la creation de la structure et des données (insertions), à la racine du repertoire <b>src/main/resources/</b> :
+pour la création de la structure et des données (insertions), à la racine du répertoire <b>src/main/resources/</b> :
 
 <b>schema-h2.sql</b>        <b>data-h2.sql</b>
 
-Ainsi une fois l'application démarrée, la base de données est accessible via la console H2 via l'url locale : 
+Ainsi une fois l'application démarrée, la base de données est accessible via la console H2 à partir de l'url locale : 
 
 <a href="http://localhost:8080/h2-console">http://localhost:8080/h2-console</a>
 
 Par la suite pour se connecter à la base de données <b>bell</b> créer en mémoire, il faut cliquer sur le bouton "Connect",
 en s'assurant avant que les paramètres de connexion requis sont corrects (Voir capture d'écran ci-dessous).
 
-<img src="./h2Console.png" width="350"/>
+<img src="./h2Console.png" width="350" title="H2 Console"/>
 
 <h2>Rest API</h2>
 
