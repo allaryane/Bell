@@ -44,5 +44,17 @@ User ID : 1,2
 GET
 http://localhost:8080/cart/{userId}
 
+<br/><br/>
+
+<h3>Database</h3>
+
+Le fichier "db.sql" situé à la racine du projet peut etre utilisé pour recreer la base de données de test.<br/>
+HSQL a été utilisé pour configurer automatiquement la base de donnees "In Memory".
+
+
+<h3>Installation</h3>
+Build : mvn clean package
+Run : mvn spring-boot:run
+
 
 
