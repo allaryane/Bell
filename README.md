@@ -39,7 +39,8 @@ http://localhost:8080/cart/{productId}
 <h3>Afficher le contenu du panier</h3>
 Affiche le contenu du panier pour un utilisateur donné par son id.
 User ID : 1,2
-<br/>
+
+
 GET
 http://localhost:8080/cart/{userId}
 
