@@ -22,7 +22,7 @@ import java.util.List;
 @Transactional
 public class ProductService extends XSAbstractService
 {
-    @Autowired ProductRepository productRepository;
+    @Autowired private ProductRepository productRepository;
     
     public ProductService()
     {
@@ -63,19 +63,8 @@ public class ProductService extends XSAbstractService
         return productRepository.save(product);
     }
     
-    public void delete(ProductEntity product)
-    {
-        productRepository.delete(product);
-    }
-    
     public void deleteById(Long productId)
     {
         productRepository.delete(productId);
-    }
-
-    public Page<ProductEntity> getAll(Integer page, Integer size)
-    {
-        Page pageOfProducts = productRepository.findAll(new PageRequest(page, size));
-        return pageOfProducts;
     }
 }
