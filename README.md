@@ -10,8 +10,17 @@ Run : mvn spring-boot:run
 <h2>Database (In Memory)</h2>
  
  La base de donneées SQL a été configurée en utilisant l'outil de persistence 
- <b>H2 database</b>.
+ <b>H2 database</b>. Le fonctionnement de cet outil dans le projet est redu possible, par l'ajout des jars nécessaires dans le classpath de l'application via <i>Maven</i> : 
+ 
+```xml
+<dependency>
+    <groupId>com.h2database</groupId>
+    <artifactId>h2</artifactId>
+</dependency>
+```
  Pour se faire le fichier <b>application.properties</b> a été configuré comme suit : 
+ 
+ <b>Spring Boot Configuration</b>
  
  ```properties
  spring.datasource.url=jdbc:h2:mem:bell;MVCC=true;DB_CLOSE_DELAY=-1;MODE=MySQL
@@ -26,10 +35,10 @@ Run : mvn spring-boot:run
  security.user.password=root
  ```
  
-Aussi H2 permet de créer la base de données SQL au démarrage de l'application en ajoutant les scripts SQL 
+Aussi H2 permet de créer la base de données SQL au démarrage de l'application en ajoutant respectivement les scripts SQL 
 pour la création de la structure et des données (insertions), à la racine du répertoire <b>src/main/resources/</b> :
 
-<b>schema-h2.sql</b>        <b>data-h2.sql</b>
+<b>schema-h2.sql</b>    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    <b>data-h2.sql</b>
 
 Ainsi une fois l'application démarrée, la base de données est accessible via la console H2 à partir de l'url locale : 
 
