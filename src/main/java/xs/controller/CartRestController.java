@@ -22,19 +22,22 @@ import xs.service.CartService;
 
 import java.util.List;
 
+/**
+ * Cart Rest Controller allowing to access and modify a user cart. Note only existing products can be added to cart.
+ */
 @RestController
 @RequestMapping("/cart")
 public class CartRestController
 {
     @Autowired CartService cartService;
     
-    public String listCartContent()
-    {
-        return "";
-    }
-    
+    /**
+     * Lists cart content for the given user.
+     * @param userId id of the user for which the cart content must retrieved.
+     * @return cart content as JSON.
+     */
     @RequestMapping(value = "{userId}", method= RequestMethod.GET)
-    public ResponseEntity<List<CartEntity>> listCart(@PathVariable Long userId)
+    public ResponseEntity<List<CartEntity>> listCartContent(@PathVariable Long userId)
     {
         try
         {
@@ -47,6 +50,12 @@ public class CartRestController
         }
     }
     
+    /**
+     * Removes an item from the cart of the given user.
+     * @param userId if of the target user.
+     * @param productId product's id to remove.
+     * @return nothing.
+     */
     @RequestMapping(value = "{userId}/{productId}", method= RequestMethod.DELETE)
     public ResponseEntity<Void> removeProductFromCart(@PathVariable Long userId, @PathVariable Long productId)
     {
@@ -61,6 +70,13 @@ public class CartRestController
         }
     }
     
+    /**
+     * Adds a new cart item for a given.
+     * @param userId if of the target user.
+     * @param productId product's id to add.
+     * @param quantity quantity of added product.
+     * @return saved cart entity.
+     */
     @RequestMapping(method= RequestMethod.POST)
     public ResponseEntity<CartEntity> addProductToCart(@PathVariable Long userId, @PathVariable Long productId, @PathVariable Integer quantity)
     {

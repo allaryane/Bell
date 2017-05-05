@@ -6,6 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+/**
+ * Main ...
+ */
 @SpringBootApplication
 @EnableJpaRepositories
 public class BellApplication
