@@ -38,9 +38,7 @@ Ainsi une fois l'application démarrée, la base de données est accessible via 
 Par la suite pour se connecter à la base de données <b>bell</b> créer en mémoire, il faut cliquer sur le bouton "Connect",
 en s'assurant avant que les paramètres de connexion requis sont corrects (Voir capture d'écran ci-dessous).
 
-<img url="https://github.com/allaryane/Bell/raw/master/h2Console.png" width="200" height="200" />
-<img url="h2Console.png" width="100" height="100" />
-
+<img src="./h2Console.png" width="350"/>
 
 <h2>Rest API</h2>
 
