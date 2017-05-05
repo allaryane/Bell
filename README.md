@@ -44,7 +44,7 @@ User ID : 1,2
 GET
 http://localhost:8080/cart/{userId}
 
-<br/><br/>
+<br/>
 
 <h3>Database</h3>
 
