@@ -47,7 +47,7 @@ public class CartRestController
         }
     }
     
-    @RequestMapping(value = "{userId}/{productId}", method= RequestMethod.GET)
+    @RequestMapping(value = "{userId}/{productId}", method= RequestMethod.DELETE)
     public ResponseEntity<Void> removeProductFromCart(@PathVariable Long userId, @PathVariable Long productId)
     {
         try
@@ -61,7 +61,7 @@ public class CartRestController
         }
     }
     
-    @RequestMapping(value = "{userId}/{productId}/{quantity}", method= RequestMethod.GET)
+    @RequestMapping(method= RequestMethod.POST)
     public ResponseEntity<CartEntity> addProductToCart(@PathVariable Long userId, @PathVariable Long productId, @PathVariable Integer quantity)
     {
         try
