@@ -1,5 +1,15 @@
 # Bell : Spring Boot Vanilla Projet
 
+<h2>Environnement (Pré-requis)</h2>
+<p>
+L'application a été développée dans l'environnement suivant.
+</p>
+<ul>
+<li>Java 8</li>
+<li>Tomcat 8.5</li>
+</ul>
+Pour éviter toute surprise il est préférable de reproduire cet environnement avant l'installation ;-).
+
 <h2>Installation</h2>
 
 Le processus d'installation est relativement simple vu l'utlisation de Spring Boot et d'une base de données "In Memory". Elle se limite donc aux deux étapes ci-dessous.
