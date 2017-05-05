@@ -2,9 +2,13 @@
 
 <h2>Installation</h2>
 
-Build : mvn clean package
+1. Creation d'un JAR exécutable : 
 
-Run : mvn spring-boot:run
+<b>mvn clean package</b>
+
+2. Démarrage de l'application : 
+
+<b>java -jar target/bell.jar</b>
 
 
 <h2>Database (In Memory)</h2>
