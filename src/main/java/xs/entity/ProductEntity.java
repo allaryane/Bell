@@ -30,7 +30,6 @@ public class ProductEntity extends XSAbstractEntity
     
     public ProductEntity()
     {
-    
     }
     
     @Basic
