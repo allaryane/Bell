@@ -12,10 +12,7 @@ import xs.entity.ProductEntity;
 
 import java.util.List;
 
-public interface ProductRepository extends XSRepository<ProductEntity, Long>
+public interface ProductRepository extends XSRepositoryAC<ProductEntity, Long>
 {
-    
-    List<ProductEntity> findByActive(boolean active);
-    List<ProductEntity> findByActiveTrue();
-    List<ProductEntity> findByActiveFalse();
+    List<ProductEntity> findByCatalogId(Long catalogId);
 }

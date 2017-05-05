@@ -16,14 +16,14 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- *
+ * Utils class.
  */
 public class XSUtils
 {
     /**
-     * Gets the list of all attribute names of a given type including superclass declared fields.
+     * Gets the list of all attribute names of a given type including superclass declared fields, using reflection.
      * @param type input type.
-     * @return list of all attribute names of a given type.
+     * @return list of all attribute names of the given type.
      */
     public static List<java.lang.reflect.Field> getObjectReflectFieldsList(Class<?> type)
     {
@@ -37,33 +37,35 @@ public class XSUtils
     }
     
     /**
-     * Print single object using reflection.
-     * @param object
-     * @param <T>
-     */
-    public static <T> void print(T object)
-    {
-        print(Arrays.asList(object), null, 1);
-    }
-    
-    /**
      * Print a list of objects using reflection.
      * @param resultsList list of objects to print.
      * @param <T> any object.
      */
     public static <T> void print(List<T> resultsList)
     {
-        print(resultsList, null, 50);
+        print(resultsList, null, null, 50);
     }
     
     /**
      * Print a list of objects using reflection.
      * @param resultsList list of objects to print.
-     * @param columnNamesToPrint list of columns to print. Note a column's name is define by the attribute's name.
-     * @param limit number max of results to print
+     * @param columnNamesToIgnore list of column names to ignore.
      * @param <T> any object.
      */
-    public static <T> void print(List<T> resultsList, String[] columnNamesToPrint, int limit)
+    public static <T> void print(List<T> resultsList, List<String> columnNamesToIgnore)
+    {
+        print(resultsList, null, columnNamesToIgnore, 50);
+    }
+    
+    /**
+     * Print a list of objects using reflection.
+     * @param resultsList list of objects to print.
+     * @param columnNamesToPrint list of column names to print. Note a column's name is define by the attribute's name.
+     * @param columnNamesToIgnore list of column names to ignore. Ignore list will be considered only in case of columnNamesToPrint is nul or empty.
+     * @param limit number max of results to print.
+     * @param <T> any object.
+     */
+    public static <T> void print(List<T> resultsList, List<String> columnNamesToPrint, List<String> columnNamesToIgnore, int limit)
     {
         if(resultsList == null || resultsList.size() == 0 || (resultsList.size() == 1 && resultsList.get(0) == null))
         {
@@ -73,16 +75,32 @@ public class XSUtils
         int n = resultsList.size();
         
         List<java.lang.reflect.Field> fieldsList = XSUtils.getObjectReflectFieldsList(resultsList.get(0).getClass());
-        
-        String[] columnNames = new String[fieldsList.size()];
-        for (int i = 0; i < columnNames.length; i++){columnNames[i] = fieldsList.get(i).getName();}
+        Field field = null;
+        List<String> columnNames = new ArrayList<String>();
+        if(columnNamesToPrint != null && columnNamesToPrint.size() > 0) columnNames = columnNamesToPrint;
+        else
+        {
+            String fName = "";
+            List<java.lang.reflect.Field> tmpFieldList = new ArrayList<java.lang.reflect.Field>();
+            
+            for (int i = 0; i < fieldsList.size(); i ++)
+            {
+                field = fieldsList.get(i);
+                fName = field.getName();
+                if(columnNamesToIgnore != null && columnNamesToIgnore.contains(fName)) continue;
+                columnNames.add(fName);
+                tmpFieldList.add(field);
+            }
+            fieldsList = tmpFieldList;
+        }
         
         if(limit > 0 && n > limit) n = limit;
-        String[ ][ ] data = new String[n][columnNames.length];
+        String[ ][ ] data = new String[n][columnNames.size()];
+
         for (int i = 0; i < n; i++)
         {
             Object object = resultsList.get(i);
-            for (int j = 0; j < columnNames.length; j++)
+            for (int j = 0; j < columnNames.size(); j++)
             {
                 try
                 {
@@ -91,8 +109,9 @@ public class XSUtils
                         data[i][j] = "null";
                         continue;
                     }
-                    fieldsList.get(j).setAccessible(true);
-                    Object fieldObject = fieldsList.get(j).get(object);
+                    field = fieldsList.get(j);
+                    field.setAccessible(true);
+                    Object fieldObject = field.get(object);
                     if(fieldObject == null)
                     {
                         data[i][j] = "null";
@@ -106,7 +125,7 @@ public class XSUtils
                 }
             }
         }
-        TextTable tt = new TextTable(columnNames, data);
+        TextTable tt = new TextTable(columnNames.toArray(new String[0]), data);
         tt.printTable();
         
         if(resultsList.size() > limit) System.out.println("\n [ ... " + n + " / " + resultsList.size() + " Result(s) ... ] \n");

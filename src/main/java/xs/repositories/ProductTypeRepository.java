@@ -12,5 +12,4 @@ import xs.entity.ProductTypeEntity;
 
 public interface ProductTypeRepository extends XSRepository<ProductTypeEntity, Long>
 {
-    
 }

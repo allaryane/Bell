@@ -18,9 +18,7 @@ public class ProductTypeEntity extends XSAbstractEntity
 {
     private String nameEn;
     private String nameFr;
-    private Timestamp createdDate;
-    private Timestamp modifiedDate;
-    
+
     public ProductTypeEntity()
     {
     

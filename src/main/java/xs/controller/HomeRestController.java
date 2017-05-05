@@ -1,5 +1,5 @@
 /**
- *  CartController
+ *  HomeController
  *  [Bell]
  *  Created on : 17-05-01
  *      Author : Ryane Alla
@@ -12,14 +12,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class CartController 
+public class HomeRestController
 {
-    
-    @RequestMapping("/cart/list")
-    public String listCartContent()
+    @RequestMapping("/")
+    public String index()
     {
-        return "";
+        String welcomeMsg = "";
+        welcomeMsg += "<h4>Welcome In Bell Project [By Ryane Alla] ... :-)</h4><br/>";
+        welcomeMsg += "Available Rest URLs : <br/>";
+        
+        return welcomeMsg;
     }
-    
-    
 }

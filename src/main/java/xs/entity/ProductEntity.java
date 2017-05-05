@@ -27,6 +27,7 @@ public class ProductEntity extends XSAbstractEntity
     private CatalogEntity catalog;
     private ProductTypeEntity productType;
     private MarkEntity mark;
+    private Float price;
     
     public ProductEntity()
     {
@@ -173,8 +174,7 @@ public class ProductEntity extends XSAbstractEntity
         this.productType = productType;
     }
     
-    
-    @ManyToOne(optional=true)
+    @ManyToOne
     @JoinColumn(name = "mark_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
     public MarkEntity getMark() {
         return mark;
@@ -182,5 +182,15 @@ public class ProductEntity extends XSAbstractEntity
     
     public void setMark(MarkEntity mark) {
         this.mark = mark;
+    }
+    
+    @Basic
+    @Column(name = "price", nullable = false, precision = 2)
+    public Float getPrice() {
+        return price;
+    }
+    
+    public void setPrice(Float price) {
+        this.price = price;
     }
 }

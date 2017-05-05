@@ -12,10 +12,6 @@ import xs.entity.UserEntity;
 
 import java.util.List;
 
-public interface UserRepository extends XSRepository<UserEntity, Long>
+public interface UserRepository extends XSRepositoryAC<UserEntity, Long>
 {
-    
-    List<UserEntity> findByActive(boolean active);
-    List<UserEntity> findByActiveTrue();
-    List<UserEntity> findByActiveFalse();
 }

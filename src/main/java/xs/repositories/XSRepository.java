@@ -25,5 +25,4 @@ public interface XSRepository<T extends XSAbstractEntity, ID extends Serializabl
     List<T> findAll();
     List<T> findAll(Sort sort);
     Page<T> findAll(Pageable pageable);
-    
 }

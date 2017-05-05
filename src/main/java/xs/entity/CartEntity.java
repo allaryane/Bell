@@ -17,6 +17,9 @@ public class CartEntity extends XSAbstractEntity
 {
     private Long userId;
     private Long productId;
+    private Integer quantity;
+    private UserEntity user;
+    private ProductEntity product;
     
     public CartEntity()
     {
@@ -65,5 +68,35 @@ public class CartEntity extends XSAbstractEntity
         result = 31 * result + (productId != null ? productId.hashCode() : 0);
         result = 31 * result + (createdDate != null ? createdDate.hashCode() : 0);
         return result;
+    }
+    
+    @Basic
+    @Column(name = "quantity", nullable = false)
+    public Integer getQuantity() {
+        return quantity;
+    }
+    
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+    
+    @OneToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
+    public UserEntity getUser() {
+        return user;
+    }
+    
+    public void setUser(UserEntity user) {
+        this.user = user;
+    }
+    
+    @OneToOne
+    @JoinColumn(name = "product_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
+    public ProductEntity getProduct() {
+        return product;
+    }
+    
+    public void setProduct(ProductEntity product) {
+        this.product = product;
     }
 }

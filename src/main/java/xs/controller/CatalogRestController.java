@@ -1,7 +1,7 @@
 /**
- *  ProductController
+ *  CartController
  *  [Bell]
- *  Created on : 17-05-01
+ *  Created on : 17-05-05
  *      Author : Ryane Alla
  *  	Email  : allaryane@gmail.com
  *    Copyright (c) 2017 XSoft Development. All rights reserved.
@@ -12,11 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class ProductController 
+@RequestMapping("/catalog")
+public class CatalogRestController
 {
-    @RequestMapping("/product/list")
-    public String listProducts()
-    {
-        return "";
-    }
+    
+    
+    
 }

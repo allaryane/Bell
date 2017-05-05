@@ -55,13 +55,40 @@ public abstract class XSAbstractEntity
         this.modifiedDate = modifiedDate;
     }
     
-    
     @Override
     public String toString()
     {
         List<Field> fieldsList = XSUtils.getObjectReflectFieldsList(this.getClass());
     
-        return this.getClass().getName();
+        String cName = this.getClass().getSimpleName();
+        String str = cName;
+        String fieldName = "";
+        Object fieldValue = null;
+        Field field = null;
+        str += "\n{\n";
+        for(int i = 0; i < fieldsList.size(); i ++)
+        {
+            field = fieldsList.get(i);
+            field.setAccessible(true);
+            fieldName = field.getName();
+            str += "\t\t";
+            try
+            {
+                fieldValue = field.get(this);
+            }
+            catch (IllegalAccessException e)
+            {
+                e.printStackTrace();
+                str = cName + "\n{\nNULL (exception : " + e.getMessage() + ")\n}\n";
+                return str;
+            }
+            str += fieldName + " : ";
+            if(fieldValue == null) str += "null";
+            else str += fieldValue.toString();
+            str += "\n";
+        }
+        str += "}";
+        return str;
     }
     
     public void print()
