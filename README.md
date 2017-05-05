@@ -44,11 +44,10 @@ User ID : 1,2
 GET
 http://localhost:8080/cart/{userId}
 
-<br/>
 
 <h3>Database</h3>
 
-Le fichier "db.sql" situé à la racine du projet peut etre utilisé pour recreer la base de données de test.<br/>
+Le fichier "db.sql" situé à la racine du projet peut etre utilisé pour recréer la base de données de test.<br/>
 HSQL a été utilisé pour configurer automatiquement la base de donnees "In Memory".
 
 
