@@ -1,6 +1,6 @@
 # Bell : Spring Boot Vanilla Projet
 
-<h2>Environnement (Pré-requis)</h2>
+### Environnement (Pré-requis)
 <p>
 L'application a été développée dans l'environnement suivant.
 </p>
@@ -10,7 +10,7 @@ L'application a été développée dans l'environnement suivant.
 </ul>
 Pour éviter toute surprise il est préférable de reproduire cet environnement avant l'installation ;-).
 
-<h2>Installation</h2>
+### Installation
 
 Le processus d'installation est relativement simple vu l'utlisation de Spring Boot et d'une base de données "In Memory". Elle se limite donc aux deux étapes ci-dessous.
 Ainsi une fois le projet téléchargé (ou cloner) via GitHub, ouvrir un terminal, se déplacer à la racine du répertoire téléchargé (ex. : <i>"cd ~/Bell-master/"</i>) puis lancer les deux commandes :
@@ -24,7 +24,7 @@ Ainsi une fois le projet téléchargé (ou cloner) via GitHub, ouvrir un termina
 <b>java -jar target/bell-0.0.1-SNAPSHOT.jar</b>
 
 
-<h2>Database (In Memory)</h2>
+### Database (In Memory)
  
  La base de donneées SQL a été configurée en utilisant l'outil de persistence 
  <b>H2 database</b>. Le fonctionnement de <i>H2</i> est rendu possible (chargement des drivers, propriétés de connexion), par l'ajout des jars nécessaires (dépendences) dans le classpath de l'application via <i>Maven</i> : 
@@ -66,33 +66,33 @@ en s'assurant avant que les paramètres de connexion requis sont corrects (Voir 
 
 <img src="./h2Console.png" width="350" title="H2 Console"/>
 
-<h2>Rest API</h2>
+### Rest API
 
-<u>Headers :</u>
+<i>Headers :</i>   
 
 Accept: application/json
 Content-Type: application/json
 
-<h4>Welcome</h4>
+#### Welcome
 GET 
 http://localhost:8080/
 
 
-<h4>Afficher un catalogue de produits</h4>
+#### Afficher un catalogue de produits
 Catalog ID : 1,2
 
 GET 
 http://localhost:8080/product/catalog/{catalogId}
 
 
-<h4>Afficher le détail d’un produit</h4>
+#### Afficher le détail d’un produit
 Product ID : 1,2, ... 12, 17
 
 GET 
 http://localhost:8080/product/{productId}
 
 
-<h4>Ajouter un produit au panier</h4>
+#### Ajouter un produit au panier
 
 POST
 http://localhost:8080/product
@@ -104,13 +104,13 @@ http://localhost:8080/product
 }
 <br/>
 
-<h4>Enlever un produit du panier</h4>
+#### Enlever un produit du panier
 
 DELETE
 http://localhost:8080/cart/{userId}/{productId}
 
 
-<h4>Afficher le contenu du panier</h4>
+#### Afficher le contenu du panier
 Affiche le contenu du panier pour un utilisateur donné par son id.
 User ID : 1,2
 
