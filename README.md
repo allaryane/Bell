@@ -61,7 +61,7 @@ Ainsi une fois l'application démarrée, la base de données est accessible via 
 
 <a href="http://localhost:8080/h2-console">http://localhost:8080/h2-console</a>
 
-Par la suite pour se connecter à la base de données <b>bell</b> créer en mémoire, il faut cliquer sur le bouton "Connect",
+Par la suite pour se connecter à la base de données <b>bell</b> crée en mémoire, il faut cliquer sur le bouton "Connect",
 en s'assurant avant que les paramètres de connexion requis sont corrects (Voir capture d'écran ci-dessous).
 
 <img src="./h2Console.png" width="350" title="H2 Console"/>
@@ -71,6 +71,7 @@ en s'assurant avant que les paramètres de connexion requis sont corrects (Voir 
 <i>Headers :</i>   
 
 Accept: application/json
+
 Content-Type: application/json
 
 #### Welcome
