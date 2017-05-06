@@ -15,10 +15,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * Abstract class designed for testing allowing to configure JUnit tests.
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
-public class XTest 
+public abstract class XTest
 {
     @Before
     public void beforeAll()

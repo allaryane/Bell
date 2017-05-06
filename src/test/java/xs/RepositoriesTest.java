@@ -25,6 +25,9 @@ import java.util.List;
 
 import static org.junit.Assert.assertTrue;
 
+/**
+ * Test Spring JPA Repositories.
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
