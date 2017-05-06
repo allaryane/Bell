@@ -27,7 +27,7 @@ Ainsi une fois le projet téléchargé (ou cloner) via GitHub, ouvrir un termina
 <h2>Database (In Memory)</h2>
  
  La base de donneées SQL a été configurée en utilisant l'outil de persistence 
- <b>H2 database</b>. Le fonctionnement de cet outil dans le projet est redu possible, par l'ajout des jars nécessaires dans le classpath de l'application via <i>Maven</i> : 
+ <b>H2 database</b>. Le fonctionnement de <i>H2</i> est rendu possible (chargement des drivers, propriétés de connexion), par l'ajout des jars nécessaires (dépendences) dans le classpath de l'application via <i>Maven</i> : 
  
 ```xml
 <dependency>
@@ -35,7 +35,7 @@ Ainsi une fois le projet téléchargé (ou cloner) via GitHub, ouvrir un termina
     <artifactId>h2</artifactId>
 </dependency>
 ```
- Pour se faire le fichier <b>application.properties</b> a été configuré comme suit : 
+ Ensuite le fichier <b>application.properties</b> a été configuré comme suit : 
  
  <b>Spring Boot Configuration</b>
  
