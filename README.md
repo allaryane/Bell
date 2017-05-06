@@ -71,8 +71,12 @@ en s'assurant avant que les paramètres de connexion requis sont corrects (Voir 
 <u>Headers :</u>
 
 Accept: application/json
-
 Content-Type: application/json
+
+<h4>Welcome</h4>
+GET 
+http://localhost:8080/
+
 
 <h4>Afficher un catalogue de produits</h4>
 Catalog ID : 1,2
@@ -103,7 +107,7 @@ http://localhost:8080/product
 <h4>Enlever un produit du panier</h4>
 
 DELETE
-http://localhost:8080/cart/{productId}
+http://localhost:8080/cart/{userId}/{productId}
 
 
 <h4>Afficher le contenu du panier</h4>
